@@ -20,6 +20,16 @@ export default {
         gray: {
           DEFAULT: '#CAC4D0',
           400: '#9D9D9D'
+        },
+        black: {
+          DEFAULT: '#1C1B1F',
+          500: '#49454F'
+        },
+        purple: {
+          DEFAULT: '#6750A4'
+        },
+        red: {
+          DEFAULT: '#CF1B1B'
         }
       }
     },

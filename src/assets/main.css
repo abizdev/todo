@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+  .btn {
+    @apply flex items-center gap-2 text-sm font-medium uppercase p-3 rounded-md transition duration-300
+  }
+  .todo-btn {
+    @apply flex justify-center items-center rounded-2xl bg-zinc cursor-pointer transition hover:shadow-md py-4 px-5
+  }
+}
