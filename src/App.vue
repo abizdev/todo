@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <h1>Hello new project </h1>
-  </div>
+  <Navbar />
 </template>
 
 <script setup lang="ts">
+import Navbar from './components/Navbar.vue';
 
 </script>
 
