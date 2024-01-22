@@ -1,8 +1,8 @@
 export type Todo = {
-  id: number,
-  title: string,
-  desc: string,
-  date: string
+  id: Ref<number>,
+  title: Ref<string>,
+  text: Ref<string>,
+  date: Ref<string>
 }
 
 export type Todolist =  Todo[]

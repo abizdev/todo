@@ -12,11 +12,18 @@
 
     <!-- content -->
     <div class="gap-6" :class="contentTypes[contentType]">
-      <Card 
-        v-for="(todo, key) in todosList"
-        :key="todo.id"
-        :todo="todo"
-      />
+      <TransitionGroup
+        enter-active-class="transition duration-500 delay-200"
+        leave-active-class="transition duration-500"
+        enter-from-class="opacity-0 translate-y-1/2"
+        leave-to-class="opacity-0 translate-y-1/2"
+      >
+        <Card 
+          v-for="(todo, key) in todosList"
+          :key="todo.id"
+          :todo="todo"
+        />
+      </TransitionGroup>
     </div>
   </main>
 </template>
@@ -34,7 +41,7 @@ const todosStore = useTodosStore()
 const todosList = computed<Todolist>(() => todosStore.todos)
 
 const contentType = ref<string>('grid')
-const contentTypes = {
+const contentTypes: Record<string, string> = {
   list: 'flex flex-col',
   grid: 'grid grid-cols-3'
 }

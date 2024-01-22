@@ -15,7 +15,8 @@ export default {
       },
       colors: {
         zinc: {
-          DEFAULT: '#F3EDF7'
+          DEFAULT: '#F3EDF7',
+          600: '#E7E0EC'
         },
         gray: {
           DEFAULT: '#CAC4D0',
