@@ -9,6 +9,13 @@ export const useTodosStore = defineStore('todos', {
   actions: {
     addTodo(todo: Todo) {
       this.todos.push(todo)
+    },
+    delTodo(todoId: number) {
+      // get index of the todo to be deleted
+      const existingTodo = this.todos.findIndex((item) => item.id === todoId)
+      
+      // delete todo
+      this.todos.splice(existingTodo, 1)
     }
   }
 })

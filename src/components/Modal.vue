@@ -51,7 +51,7 @@ const { addTodo } = useTodosStore()
 
 const inputTitle = ref<string>('')
 const inputText = ref<string>('')
-const todoId = ref<number>(1)
+const todoId = ref<number>(0)
 
 const close = (): void => {
   emit('close')
@@ -64,6 +64,8 @@ const addTodoItem = () => {
   const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate()
   const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1
   const year = date.getFullYear()
+
+  todoId.value++
 
   const todo = {
     id: todoId.value,

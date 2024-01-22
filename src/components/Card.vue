@@ -9,7 +9,12 @@
       <Button type="primary" text="РЕДАКТИРОВАТЬ" v-slot:icon>
         <font-awesome-icon icon="far-regular fa-pen" class="text-purple"/>
       </Button>
-      <Button type="secondary" text="Удалить" v-slot:icon>
+      <Button 
+        type="secondary" 
+        text="Удалить" 
+        v-slot:icon
+        @click="delTodo(todo.id)"
+      >
         <font-awesome-icon icon="fa-solid fa-trash" class="text-red" />
       </Button>
     </div>
@@ -21,6 +26,11 @@ import Button from './Button.vue';
 
 import type { Todo } from '@/types/todo.js';
 
+import { useTodosStore } from '@/stores/todos';
+
 const { todo } = defineProps<{ todo: Todo}>()
+
+const { delTodo } = useTodosStore()
+
 
 </script>
