@@ -1,10 +1,10 @@
 <template>
   <Navbar />
   <Content />
-  <Modal :isActive="modalActive" @close="toggleModalActive" />
+  <Modal />
 
 
-  <button class="todo-btn fixed right-8 bottom-8 w-14 h-14" @click="toggleModalActive">
+  <button class="todo-btn fixed right-8 bottom-8 w-14 h-14" @click="toggleModal('add')">
     <font-awesome-icon icon="far-regular fa-pen" class="text-purple"/>
   </button>
 </template>
@@ -16,6 +16,11 @@ import Modal from './components/Modal.vue';
 
 import { ref } from 'vue';
 
-const modalActive = ref<boolean>(false)
-const toggleModalActive = (): boolean => modalActive.value = !modalActive.value
+import { useTodosStore } from './stores/todos';
+
+const { modalActive, toggleModal } = useTodosStore()
+
+console.log(useTodosStore());
+
+
 </script>

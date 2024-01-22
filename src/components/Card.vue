@@ -6,14 +6,19 @@
     </div>
     <p class="text-sm text-black-500 tracking-[0.25px]">{{ todo.text }}</p>
     <div class="flex items-center self-end gap-2">
-      <Button type="primary" text="РЕДАКТИРОВАТЬ" v-slot:icon>
+      <Button 
+        type="primary" 
+        text="РЕДАКТИРОВАТЬ" 
+        v-slot:icon
+        @click="editTodo"
+      >
         <font-awesome-icon icon="far-regular fa-pen" class="text-purple"/>
       </Button>
       <Button 
         type="secondary" 
         text="Удалить" 
         v-slot:icon
-        @click="delTodo(todo.id)"
+        @click="todosStore.delTodo(todo.id)"
       >
         <font-awesome-icon icon="fa-solid fa-trash" class="text-red" />
       </Button>
@@ -30,7 +35,11 @@ import { useTodosStore } from '@/stores/todos';
 
 const { todo } = defineProps<{ todo: Todo}>()
 
-const { delTodo } = useTodosStore()
+let todosStore = useTodosStore()
 
+const editTodo = () => {
+  todosStore.editTodoId = todo.id
+  todosStore.toggleModal('edit')
+}
 
 </script>
