@@ -27,7 +27,8 @@ export const useTodosStore = defineStore('todos', {
     editTodo(todo: Todo) {
       // get todo index
       const existingTodo = this.todos.findIndex((item) => item.id === todo.id)
-
+      console.log(existingTodo, todo.id);
+      
       // replace with new todo values
       this.todos.splice(existingTodo, 1, todo)
     }

@@ -86,7 +86,7 @@ const addTodoItem = () => {
 }
 const editedTodoItem = () => {
   const todo = {
-    id: editTodoId,
+    id: editTodoId.value,
     date: todoDate(),
     title: inputTitle.value,
     text: inputText.value,
