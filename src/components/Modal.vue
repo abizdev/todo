@@ -46,6 +46,8 @@ import { ref, computed } from 'vue';
 
 import { useTodosStore } from '../stores/todos'
 
+import type { Todo } from '@/types/todo';
+
 const emit = defineEmits()
 
 const todosStore = useTodosStore()
@@ -85,7 +87,7 @@ const addTodoItem = () => {
   close()
 }
 const editedTodoItem = () => {
-  const todo = {
+  const todo: Todo = {
     id: editTodoId.value,
     date: todoDate(),
     title: inputTitle.value,

@@ -27,7 +27,7 @@ interface Input {
 const props = defineProps<Input>()
 
 const emit = defineEmits()
-const update = ($event) => {
+const update = ($event: any) => {
   emit('update:modelValue', $event.target.value)
 }
 </script>

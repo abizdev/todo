@@ -4,7 +4,14 @@ import type { Todo } from '@/types/todo'
 
 export const useTodosStore = defineStore('todos', {
   state: () => ({
-    todos: [],
+    todos: [
+      {
+        id: 0,
+        date: '01.01.2024',
+        title: 'Lorem',
+        text: 'lorem ipsum dolor',
+      }
+    ],
     modalType: '',
     modalActive: false,
     editTodoId: null
@@ -19,14 +26,14 @@ export const useTodosStore = defineStore('todos', {
     },
     delTodo(todoId: number) {
       // get todo index
-      const existingTodo = this.todos.findIndex((item) => item.id === todoId)
+      const existingTodo = this.todos.findIndex((item) => item?.id === todoId)
       
       // delete todo
       this.todos.splice(existingTodo, 1)
     },
     editTodo(todo: Todo) {
       // get todo index
-      const existingTodo = this.todos.findIndex((item) => item.id === todo.id)
+      const existingTodo = this.todos.findIndex((item) => item?.id === todo.id)
       console.log(existingTodo, todo.id);
       
       // replace with new todo values
